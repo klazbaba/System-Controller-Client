@@ -1,0 +1,11 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "paths": {
+      "*": ["src/*"],
+      "tests": ["tests/*"]
+    },
+    "baseUrl": "."
+  }
+}
