@@ -4,4 +4,10 @@ module.exports = {
   bracketSpacing: false,
   singleQuote: true,
   trailingComma: 'all',
+  printWidth: 80,
+  trailingComma: 'all',
+  semi: true,
+  importOrder: ['^react'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
 };
