@@ -35,6 +35,7 @@ jobs:
         with:
           api-level: 32
           profile: pixel_4
+          target: google_apis_playstore
           script: |
             adb reverse tcp:8081 tcp:8081
             yarn android:detox
