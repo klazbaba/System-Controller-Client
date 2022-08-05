@@ -20,11 +20,13 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      # - name: Install Java JDK
-      #   uses: joschi/setup-jdk@v1
-      #   with:
-      #     java-version: 'openjdk8'
-      #     architecture: 'x64'
-      #   env:
-      #     # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
-      #     ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      - name: Install Java JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 'openjdk8'
+          architecture: 'x64'
+          distribution: 'temurin'
+          cache: 'gradle'
+        env:
+          # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
