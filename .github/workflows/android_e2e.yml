@@ -26,7 +26,6 @@ jobs:
           java-version: '8'
           architecture: 'x64'
           distribution: 'temurin'
-          cache: 'gradle'
         env:
           # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
