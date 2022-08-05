@@ -29,3 +29,12 @@ jobs:
         env:
           # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+      - name: Install emulator and run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 32
+          profile: pixel_4
+          script: |
+            adb reverse tcp:8081 tcp:8081
+            yarn android:detox
