@@ -23,7 +23,7 @@ jobs:
       - name: Install Java JDK
         uses: actions/setup-java@v3
         with:
-          java-version: 'openjdk8'
+          java-version: '8'
           architecture: 'x64'
           distribution: 'temurin'
           cache: 'gradle'
