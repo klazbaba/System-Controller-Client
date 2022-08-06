@@ -59,7 +59,7 @@ jobs:
           target: google_apis
           script: echo "Generated AVD snapshot for caching."
 
-      - name: Install emulator and run tests
+      - name: Run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
