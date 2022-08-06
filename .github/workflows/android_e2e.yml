@@ -1,0 +1,41 @@
+name: E2E (ANDROID)
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  run_android_test:
+    name: E2E (ANDROID)
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Install Java JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          architecture: 'x64'
+          distribution: 'temurin'
+        env:
+          # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+      - name: Install emulator and run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 28
+          profile: pixel_4
+          target: google_apis
+          script: |
+            adb reverse tcp:8081 tcp:8081
+            yarn android.CI:detox
