@@ -30,12 +30,32 @@ jobs:
           # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
+      - name: AVD cache
+        uses: actions/cache@v3
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-28
+
+      - name: create AVD and generate snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 28
+          force-avd-creation: false
+          profile: pixel_4
+          target: google_apis
+          script: echo "Generated AVD snapshot for caching."
+
       - name: Install emulator and run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
           profile: pixel_4
           target: google_apis
+          force-avd-creation: false
           script: |
             adb reverse tcp:8081 tcp:8081
             yarn android.CI:detox
