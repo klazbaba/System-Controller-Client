@@ -30,6 +30,10 @@ jobs:
           # https://github.com/actions/toolkit/issues/641#issuecomment-728963957
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        gradle-version: 7.3.3
+
       - name: AVD cache
         uses: actions/cache@v3
         id: avd-cache
