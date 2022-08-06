@@ -59,9 +59,12 @@ jobs:
           force-avd-creation: false
           profile: pixel_4
           target: google_apis
-          script: echo "Generated AVD snapshot for caching."
+          script: |
+            adb reverse tcp:8081 tcp:8081
+            yarn android.CI:detox
 
       - name: Run tests
+        if: steps.avd-cache.outputs.cache-hit == 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
