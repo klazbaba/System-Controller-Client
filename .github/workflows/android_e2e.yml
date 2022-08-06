@@ -38,4 +38,4 @@ jobs:
           target: google_apis
           script: |
             adb reverse tcp:8081 tcp:8081
-            yarn android:detox
+            yarn android.CI:detox

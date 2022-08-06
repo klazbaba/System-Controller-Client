@@ -8,8 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "android:detox": "detox build -c android && detox test -c android",
-    "ios:detox": "detox build -c ios && detox test -c ios"
+    "android.CI:detox": "detox build -c android && detox test -c android",
+    "ios.CI:detox": "detox build -c ios && detox test -c ios"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.11",

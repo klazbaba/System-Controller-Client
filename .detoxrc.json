@@ -12,6 +12,11 @@
       "type": "android.apk",
       "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
       "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .."
+    },
+    "android.release": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android && ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release && cd .."
     }
   },
   "devices": {
@@ -26,6 +31,12 @@
       "device": {
         "avdName": "Pixel_4_API_32"
       }
+    },
+    "test": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "test"
+      }
     }
   },
   "configurations": {
@@ -36,6 +47,10 @@
     "android": {
       "device": "emulator",
       "app": "android"
+    },
+    "android.CI": {
+      "device": "test",
+      "app": "android.release"
     }
   }
 }
