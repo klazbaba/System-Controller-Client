@@ -2,6 +2,8 @@ name: E2E (ANDROID)
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 jobs:
   run_android_test:
