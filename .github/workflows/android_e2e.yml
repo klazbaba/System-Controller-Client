@@ -1,6 +1,6 @@
 name: E2E (ANDROID)
 on:
-  [pull_request, push]:
+  pull_request:
     branches: [main]
 
 jobs:
