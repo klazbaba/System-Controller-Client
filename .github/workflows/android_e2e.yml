@@ -60,13 +60,12 @@ jobs:
           script: echo "Generated AVD snapshot for caching."
 
       - name: Run tests
-        # uses: reactivecircus/android-emulator-runner@v2
-        # with:
-        #   api-level: 28
-        #   profile: pixel_4
-        #   target: google_apis
-        #   force-avd-creation: false
-        #   script: |
-        #     adb reverse tcp:8081 tcp:8081
-        #     yarn android.CI:detox
-        run: yarn android.CI:detox
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 28
+          profile: pixel_4
+          target: google_apis
+          force-avd-creation: false
+          script: |
+            adb reverse tcp:8081 tcp:8081
+            yarn android.CI:detox
