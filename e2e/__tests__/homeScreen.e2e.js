@@ -5,7 +5,6 @@ describe('Example', () => {
   });
 
   it('should open the home screen', async () => {
-    await device.takeScreenshot('screenshot');
-    // await expect(element(by.text('HomeScreen'))).toBeVisible();
+    await expect(element(by.text('HomeScreen'))).toBeVisible();
   });
 });
