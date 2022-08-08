@@ -60,7 +60,8 @@ jobs:
       - name: Cache build
         if: steps.avd-cache.outputs.cache-hit == 'true'
         run: |
-          /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &&
+          echo soft
 
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
