@@ -59,8 +59,7 @@ jobs:
       - name: Cache build
         # uses: actions/cache@v3
         if: steps.avd-cache.outputs.cache-hit == 'true'
-        run: |
-          /bin/sh -c \/Users/runner/Library/Android/sdk/emulator/emulator -list-avds
+        run: /Users/runner/Library/Android/sdk/emulator/emulator -list-avds
 
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
