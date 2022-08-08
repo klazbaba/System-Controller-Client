@@ -58,7 +58,7 @@ jobs:
           key: avd-and-sdk
 
       - name: Cache build
-        if: steps.avd-cache.outputs.cache-hit == 'true'
+        if: steps.avd-and-sdk-cache.outputs.cache-hit == 'true'
         run: |
           /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &&
           echo soft
