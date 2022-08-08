@@ -47,20 +47,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: AVD cache
+      - name: AVD and SDK cache
         uses: actions/cache@v3
-        id: avd-cache
+        id: avd-and-sdk-cache
         with:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-28
+            ~/.Library/Android/sdk/*
+          key: avd-and-sdk
 
       - name: Cache build
-        # uses: actions/cache@v3
         if: steps.avd-cache.outputs.cache-hit == 'true'
         run: |
-          export ANDROID_SDK_ROOT=/Users/runner/Library/Android/sdk
           /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
 
       - name: create AVD and generate snapshot for caching
