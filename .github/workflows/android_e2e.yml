@@ -60,8 +60,8 @@ jobs:
         # uses: actions/cache@v3
         if: steps.avd-cache.outputs.cache-hit == 'true'
         run: |
-          /bin/sh -c \printf 'hw.cpu.ncore=2 &&
-          /bin/sh -c \/Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          printf 'hw.cpu.ncore=2 &&
+          /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
 
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
