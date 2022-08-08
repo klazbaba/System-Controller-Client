@@ -56,6 +56,14 @@ jobs:
             ~/.android/adb*
           key: avd-28
 
+      - name: Cache build
+        # uses: actions/cache@v3
+        if: steps.avd-cache.outputs.cache-hit == 'true'
+        run: |
+          /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &&
+          sleep 50 &&
+          adb devices
+
       - name: create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
@@ -68,14 +76,14 @@ jobs:
             adb reverse tcp:8081 tcp:8081
             yarn android.CI:detox
 
-      - name: Run tests
-        if: steps.avd-cache.outputs.cache-hit == 'true'
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 28
-          profile: pixel_4
-          target: google_apis
-          force-avd-creation: false
-          script: |
-            adb reverse tcp:8081 tcp:8081
-            yarn android.CI:detox
+      # - name: Run tests
+      #   if: steps.avd-cache.outputs.cache-hit == 'true'
+      #   uses: reactivecircus/android-emulator-runner@v2
+      #   with:
+      #     api-level: 28
+      #     profile: pixel_4
+      #     target: google_apis
+      #     force-avd-creation: false
+      #     script: |
+      #       adb reverse tcp:8081 tcp:8081
+      #       yarn android.CI:detox
