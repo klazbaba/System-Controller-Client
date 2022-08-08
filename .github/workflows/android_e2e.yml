@@ -60,7 +60,7 @@ jobs:
         # uses: actions/cache@v3
         if: steps.avd-cache.outputs.cache-hit == 'true'
         run: |
-          /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &&
+          \/Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &&
           sleep 50 &&
           adb devices
 
