@@ -15,7 +15,11 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <AppStack.Navigator>
-        <AppStack.Screen name="HomeScreen" component={HomeScreen} />
+        <AppStack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{header: () => null}}
+        />
       </AppStack.Navigator>
     </NavigationContainer>
   );
