@@ -5997,6 +5997,11 @@ react-native-codegen@^0.69.1:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-form-component@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-form-component/-/react-native-form-component-2.4.0.tgz#e7dffed85c26f888c34c23dbcb044ae2a7012262"
+  integrity sha512-/FRaj0h2rIYMLvhtAfnunSF6JuC7W7jrA4riZp8IRkXLCvi1z5wBAV4C0eKZ9RoLeZzgDiM89swEb8O5yRjuPQ==
+
 react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"

@@ -7,7 +7,7 @@ module.exports = {
   printWidth: 80,
   trailingComma: 'all',
   semi: true,
-  importOrder: ['^react', '^screens/'],
+  importOrder: ['react', ''],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 };

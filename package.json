@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "android.CI:detox": "detox build -c android.CI && detox test -c android.CI",
@@ -17,6 +17,7 @@
     "detox": "^19.9.0",
     "react": "18.0.0",
     "react-native": "0.69.2",
+    "react-native-form-component": "^2.4.0",
     "react-native-safe-area-context": "^4.3.1",
     "react-native-screens": "^3.15.0"
   },
